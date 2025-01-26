@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // Declare necessary variables
+    let numOfCourses = parseInt(prompt("Enter the number of courses:")); // Get number of courses from user
+    let courseMarks = []; // Array to store course marks
+    let total = 0; // Variable to store the total of marks
+
+    // Loop to get course marks
+    for (let i = 1; i <= numOfCourses; i++) {
+      // Prompt user for each course mark, convert it to a number, and add to the array
+      courseMarks.push(parseFloat(prompt(`Enter the mark for course ${i}:`)));
+      total += courseMarks[i - 1]; // Add the mark to the total
+    }
+
+    // Calculate average
+    let average = total / numOfCourses;
+
+    // Round the average to 2 decimal places
+    average = parseFloat(average.toFixed(2));
+
+    // Output all course marks
+    document.write("<h3>Course Marks:</h3>");
+    for (let i = 0; i < courseMarks.length; i++) {
+      document.write(`Course ${i + 1}: ${courseMarks[i]}<br>`);
+    }
+
+    // Output the average and grade
+    document.write("<h3>Final Results:</h3>");
+    if (average >= 90 && average <= 100) {
+      document.write(`Your final average is ${average}. Your grade is A+`);
+    } else if (average >= 80 && average <= 89) {
+      document.write(`Your final average is ${average}. Your grade is B`);
+    } else if (average >= 70 && average <= 79) {
+      document.write(`Your final average is ${average}. Your grade is C`);
+    } else if (average >= 60 && average <= 69) {
+      document.write(`Your final average is ${average}. Your grade is D`);
+    } else if (average < 60) {
+      document.write(`Your final average is ${average}. Your grade is F`);
+    } else {
+      document.write(
+        "Sorry, all the marks have to be from minimum 0 to maximum 100!"
+      );
+    }
+  </script>
+</body>
+
+</html>
